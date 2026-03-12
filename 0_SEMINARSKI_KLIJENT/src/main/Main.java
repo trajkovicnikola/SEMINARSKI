@@ -11,7 +11,17 @@ package main;
 public class Main {
     
     public static void main(String[] args) {
-           kordinator.Kordinator.getInstance().otvoriLoginFormu();
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (Exception e) {
+            // ostaje default L&F
+        }
+        kordinator.Kordinator.getInstance().otvoriLoginFormu();
     }
     
 }

@@ -25,6 +25,8 @@ public class GlavnaForma extends javax.swing.JFrame {
      */
     public GlavnaForma() {
         initComponents();
+        setTitle("Sportski pregledi");
+        setMinimumSize(new java.awt.Dimension(750, 550));
         setLocationRelativeTo(null);
     }
 

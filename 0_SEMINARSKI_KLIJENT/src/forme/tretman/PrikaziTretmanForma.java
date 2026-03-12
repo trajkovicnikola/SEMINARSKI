@@ -18,6 +18,8 @@ public class PrikaziTretmanForma extends javax.swing.JFrame {
      */
     public PrikaziTretmanForma() {
         initComponents();
+        setTitle("Tretmani");
+        setMinimumSize(new java.awt.Dimension(500, 400));
         setLocationRelativeTo(null);
     }
 

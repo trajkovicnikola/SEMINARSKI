@@ -20,6 +20,8 @@ public class LoginForma extends javax.swing.JFrame {
      */
     public LoginForma() {
         initComponents();
+        setTitle("Prijava");
+        setMinimumSize(new java.awt.Dimension(400, 250));
         setLocationRelativeTo(null);
     }
 

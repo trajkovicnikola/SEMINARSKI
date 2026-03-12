@@ -21,6 +21,8 @@ public class DodajKlijentaForma extends javax.swing.JFrame {
      */
     public DodajKlijentaForma() {
         initComponents();
+        setTitle("Klijent");
+        setMinimumSize(new java.awt.Dimension(420, 320));
         setLocationRelativeTo(null);
     }
 

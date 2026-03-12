@@ -21,6 +21,8 @@ public class PrikaziPregledForma extends javax.swing.JFrame {
      */
     public PrikaziPregledForma() {
         initComponents();
+        setTitle("Pregledi");
+        setMinimumSize(new java.awt.Dimension(700, 500));
         setLocationRelativeTo(null);
         jDateChooser.setDateFormatString("dd.MM.yyyy");
 

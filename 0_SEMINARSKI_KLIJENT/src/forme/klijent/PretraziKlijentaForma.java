@@ -22,6 +22,8 @@ public class PretraziKlijentaForma extends javax.swing.JFrame {
      */
     public PretraziKlijentaForma() {
         initComponents();
+        setTitle("Pretraga klijenata");
+        setMinimumSize(new java.awt.Dimension(600, 450));
         setLocationRelativeTo(null);
     }
 

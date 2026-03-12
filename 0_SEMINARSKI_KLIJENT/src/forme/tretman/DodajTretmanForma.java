@@ -20,6 +20,8 @@ public class DodajTretmanForma extends javax.swing.JFrame {
      */
     public DodajTretmanForma() {
         initComponents();
+        setTitle("Tretman");
+        setMinimumSize(new java.awt.Dimension(420, 350));
         setLocationRelativeTo(null);
     }
 
