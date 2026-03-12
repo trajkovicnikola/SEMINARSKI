@@ -18,6 +18,7 @@ import operacija.klijent.IzmeniKlijentaOperacija;
 import operacija.zaposleni.LoginOperacija;
 import operacija.klijent.UcitajKlijenteOperacija;
 import operacija.pregled.DodajPregledOperacija;
+import operacija.pregled.IzmeniPregledOperacija;
 import operacija.pregled.ObrisiPregledOperacija;
 import operacija.pregled.UcitajPregledOperacija;
 import operacija.tretman.DodajTretmanOperacija;
@@ -111,6 +112,11 @@ public class Controller {
 
     public void kreirajPregled(Pregled p) throws Exception {
         DodajPregledOperacija operacija = new DodajPregledOperacija();
+        operacija.izvrsi(p, null);
+    }
+
+    public void izmeniPregled(Pregled p) throws Exception {
+        IzmeniPregledOperacija operacija = new IzmeniPregledOperacija();
         operacija.izvrsi(p, null);
     }
 

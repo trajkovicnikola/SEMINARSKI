@@ -132,6 +132,15 @@ public class ObradaKlijentskihZahteva extends Thread {
                             odgovor.setOdgovor(e);
                         }
                         break;
+                    case IZMENI_PREGLED:
+                        try {
+                            p = (Pregled) zahtev.getParametar();
+                            Controller.getInstance().izmeniPregled(p);
+                            odgovor.setOdgovor(null);
+                        } catch (Exception e) {
+                            odgovor.setOdgovor(e);
+                        }
+                        break;
                     case LOGOUT:
                         try {
                             Zaposleni z = (Zaposleni) zahtev.getParametar();

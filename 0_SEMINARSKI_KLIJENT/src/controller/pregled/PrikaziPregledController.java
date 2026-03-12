@@ -111,21 +111,38 @@ public class PrikaziPregledController {
             public void actionPerformed(ActionEvent e) {
                 int selektovaniRed = pkf.getjTablePregled().getSelectedRow();
                 if (selektovaniRed == -1) {
-                    JOptionPane.showMessageDialog(pkf, "Morate izabrati pregled koji zalite da obrisete", "GRESKA",JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(pkf, "Morate izabrati pregled koji zelite da obrisete", "GRESKA", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
                 ModelTabelePregled mtp = (ModelTabelePregled) pkf.getjTablePregled().getModel();
                 Pregled p = mtp.getLista().get(selektovaniRed);
                 try {
                     Komunikacija.getInstance().obrisiPregled(p);
-                    JOptionPane.showMessageDialog(pkf, "Sistem je uspesno obrisao pregled", "GRESKA",JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(pkf, "Sistem je uspesno obrisao pregled", "USPEH", JOptionPane.INFORMATION_MESSAGE);
                     pripremiPodatke();
                 } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(pkf, "Sistem ne moze da obrise pregled", "GRESKA",JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(pkf, ex.getMessage(), "GRESKA", JOptionPane.ERROR_MESSAGE);
                 }
-                
             }
         });
+
+        pkf.addIzmeniPregledActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int selektovaniRed = pkf.getjTablePregled().getSelectedRow();
+                if (selektovaniRed == -1) {
+                    JOptionPane.showMessageDialog(pkf, "Morate izabrati pregled koji zelite da izmenite", "GRESKA", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                ModelTabelePregled mtp = (ModelTabelePregled) pkf.getjTablePregled().getModel();
+                Pregled p = mtp.getLista().get(selektovaniRed);
+                kordinator.Kordinator.getInstance().aktivirajIzmeniPregledMod(p);
+            }
+        });
+    }
+
+    public void zatvoriFormu() {
+        pkf.dispose();
     }
 
 }

@@ -148,6 +148,15 @@ public class Komunikacija {
         }
     }
 
+    public void izmeniPregled(Pregled p) throws Exception {
+        Zahtev zahtev = new Zahtev(Operacija.IZMENI_PREGLED, p);
+        posiljalac.posalji(zahtev);
+        Odgovor odgovor = primiOdgovor();
+        if (odgovor.getOdgovor() != null) {
+            throw (Exception) odgovor.getOdgovor();
+        }
+    }
+
     public void dodajPregled(Pregled p) throws Exception {
         Zahtev zahtev = new Zahtev(Operacija.KREIRAJ_PREGLED, p);
         posiljalac.posalji(zahtev);

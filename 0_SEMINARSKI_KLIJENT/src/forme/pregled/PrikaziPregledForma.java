@@ -49,6 +49,7 @@ public class PrikaziPregledForma extends javax.swing.JFrame {
         jDateChooser = new com.toedter.calendar.JDateChooser();
         jLabel1 = new javax.swing.JLabel();
         jButtonObrisiPregled = new javax.swing.JButton();
+        jButtonIzmeniPregled = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -86,6 +87,8 @@ public class PrikaziPregledForma extends javax.swing.JFrame {
 
         jButtonObrisiPregled.setText("Obrisi pregled");
 
+        jButtonIzmeniPregled.setText("Izmeni pregled");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -99,7 +102,10 @@ public class PrikaziPregledForma extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonObrisiPregled)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButtonObrisiPregled)
+                        .addGap(10, 10, 10)
+                        .addComponent(jButtonIzmeniPregled))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(12, 12, 12)
@@ -120,7 +126,9 @@ public class PrikaziPregledForma extends javax.swing.JFrame {
                     .addComponent(jButtonPretrazi)
                     .addComponent(jButtonResetujPretragu))
                 .addGap(10, 10, 10)
-                .addComponent(jButtonObrisiPregled)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonObrisiPregled)
+                    .addComponent(jButtonIzmeniPregled))
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
@@ -223,6 +231,7 @@ public class PrikaziPregledForma extends javax.swing.JFrame {
         this.jTablePregled = jTablePregled;
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonIzmeniPregled;
     private javax.swing.JButton jButtonObrisiPregled;
     private javax.swing.JButton jButtonPretrazi;
     private javax.swing.JButton jButtonResetujPretragu;
@@ -243,5 +252,9 @@ public void addPretraziActionListener(ActionListener actionListener) {
 
     public void addObrisiPregledActionListener(ActionListener actionListener) {
         jButtonObrisiPregled.addActionListener(actionListener);
+    }
+
+    public void addIzmeniPregledActionListener(ActionListener actionListener) {
+        jButtonIzmeniPregled.addActionListener(actionListener);
     }
 }

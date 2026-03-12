@@ -8,6 +8,7 @@ import com.github.lgooddatepicker.components.DateTimePicker;
 import domen.Klijent;
 import domen.Tretman;
 import java.awt.event.ActionListener;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JMenuItem;
@@ -419,5 +420,8 @@ public class GlavnaForma extends javax.swing.JFrame {
         jMenuItemDodajTretman.addActionListener(actionListener);
     }
 
-   
+    public JButton getjButtonKreirajPregled() {
+        return jButtonKreirajPregled;
+    }
+
 }

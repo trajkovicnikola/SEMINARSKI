@@ -5,8 +5,8 @@
 package kordinator;
 
 import controller.klijent.DodajKlijentaController;
-
 import controller.GlavnaFormaController;
+import domen.Pregled;
 
 import controller.zaposleni.LoginController;
 import controller.klijent.PretraziKlijentaController;
@@ -121,6 +121,11 @@ public class Kordinator {
 
     public void osveziComboKlijent() {
         glavnaFormaController.osveziComboKlijent();
+    }
+
+    public void aktivirajIzmeniPregledMod(Pregled p) {
+        prikaziPregledController.zatvoriFormu();
+        glavnaFormaController.aktivirajIzmeniMod(p);
     }
 
 }

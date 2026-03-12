@@ -5,29 +5,27 @@
 package controller;
 
 import domen.Klijent;
+import domen.Pregled;
 import domen.StavkaPregleda;
 import domen.Tretman;
 import domen.Zaposleni;
 import forme.GlavnaForma;
+import forme.model.FormaMod;
 import forme.model.ModelTabeleStavka;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import komunikacija.Komunikacija;
 import kordinator.Kordinator;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import com.github.lgooddatepicker.components.TimePickerSettings;
-import domen.Pregled;
-import forme.model.FormaMod;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.ZoneId;
-import java.util.Date;
-import javax.swing.JFrame;
 
 /**
  *
@@ -36,6 +34,7 @@ import javax.swing.JFrame;
 public class GlavnaFormaController {
 
     private final GlavnaForma gf;
+    private Pregled pregledZaIzmenu;
 
     public GlavnaFormaController(GlavnaForma gf) {
         this.gf = gf;
@@ -142,13 +141,24 @@ public class GlavnaFormaController {
                     ukupanIznos += stavka.getIznos();
                 }
                 Zaposleni z = Kordinator.getInstance().getUlogovani();
-                Pregled p = new Pregled(-1, z, k, new Date(), datumPregleda, ukupanIznos, stavke);
-                try {
-                    Komunikacija.getInstance().dodajPregled(p);
-                    JOptionPane.showMessageDialog(gf, "Sistem je uspesno kreirao pregled", "USPEH", JOptionPane.INFORMATION_MESSAGE);
 
-                } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(gf, ex.getMessage(), "GRESKA", JOptionPane.ERROR_MESSAGE);
+                if (pregledZaIzmenu != null) {
+                    Pregled p = new Pregled(pregledZaIzmenu.getPregledID(), z, k, pregledZaIzmenu.getDatumRezervacije(), datumPregleda, ukupanIznos, stavke);
+                    try {
+                        Komunikacija.getInstance().izmeniPregled(p);
+                        JOptionPane.showMessageDialog(gf, "Sistem je uspesno izmenio pregled", "USPEH", JOptionPane.INFORMATION_MESSAGE);
+                        resetujNaDodajMod();
+                    } catch (Exception ex) {
+                        JOptionPane.showMessageDialog(gf, ex.getMessage(), "GRESKA", JOptionPane.ERROR_MESSAGE);
+                    }
+                } else {
+                    Pregled p = new Pregled(-1, z, k, new Date(), datumPregleda, ukupanIznos, stavke);
+                    try {
+                        Komunikacija.getInstance().dodajPregled(p);
+                        JOptionPane.showMessageDialog(gf, "Sistem je uspesno kreirao pregled", "USPEH", JOptionPane.INFORMATION_MESSAGE);
+                    } catch (Exception ex) {
+                        JOptionPane.showMessageDialog(gf, ex.getMessage(), "GRESKA", JOptionPane.ERROR_MESSAGE);
+                    }
                 }
             }
         });
@@ -169,6 +179,34 @@ public class GlavnaFormaController {
         gf.getjTableStavka().setModel(mts);
         osveziComboKlijent();
         osveziComboTretman();
+    }
+
+    public void aktivirajIzmeniMod(Pregled p) {
+        this.pregledZaIzmenu = p;
+
+        for (int i = 0; i < gf.getjComboBoxKlijent().getItemCount(); i++) {
+            if (gf.getjComboBoxKlijent().getItemAt(i).getKlijentID() == p.getKlijent().getKlijentID()) {
+                gf.getjComboBoxKlijent().setSelectedIndex(i);
+                break;
+            }
+        }
+
+        LocalDateTime ldt = p.getDatumPregleda().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+        gf.getDateTimePicker().setDateTimeStrict(ldt);
+
+        ModelTabeleStavka mts = new ModelTabeleStavka(new ArrayList<>(p.getStavkePregleda()));
+        gf.getjTableStavka().setModel(mts);
+
+        gf.getjButtonKreirajPregled().setText("Izmeni pregled");
+        gf.toFront();
+        gf.requestFocus();
+    }
+
+    private void resetujNaDodajMod() {
+        pregledZaIzmenu = null;
+        gf.getjButtonKreirajPregled().setText("Kreiraj pregled");
+        gf.getjTableStavka().setModel(new ModelTabeleStavka(new ArrayList<>()));
+        gf.getDateTimePicker().setDateTimeStrict(null);
     }
 
     public void osveziComboKlijent() {
