@@ -6,6 +6,7 @@ package operacija.pregled;
 
 import domen.Pregled;
 import domen.StavkaPregleda;
+import java.util.Date;
 import java.util.List;
 import operacija.ApstraktnaGenerickaOperacija;
 
@@ -23,6 +24,16 @@ public class DodajPregledOperacija extends ApstraktnaGenerickaOperacija {
         Pregled p=(Pregled)param;
         if(p.getStavkePregleda()==null || p.getStavkePregleda().isEmpty()){
             throw new Exception("Pregled mora imati bar jednu stavku pregleda");
+        }
+        Date sada = new Date();
+        if(p.getDatumPregleda()==null){
+            throw new Exception("Datum pregleda mora biti unesen");
+        }
+        if(!p.getDatumPregleda().after(sada)){
+            throw new Exception("Datum pregleda mora biti u buducnosti");
+        }
+        if(!p.getDatumPregleda().after(p.getDatumRezervacije())){
+            throw new Exception("Datum pregleda mora biti posle datuma rezervacije");
         }
     }
 
