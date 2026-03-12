@@ -145,7 +145,7 @@ public class Komunikacija {
         posiljalac.posalji(zahtev);
         Odgovor odgovor = (Odgovor) primalac.primi();
         if (odgovor.getOdgovor() != null) {
-            throw new Exception("Sistem ne moze da kreira pregled");
+            throw (Exception) odgovor.getOdgovor();
         }
     }
 
