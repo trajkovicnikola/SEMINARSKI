@@ -22,7 +22,7 @@ public class PrikaziPregledForma extends javax.swing.JFrame {
     public PrikaziPregledForma() {
         initComponents();
         setTitle("Pregledi");
-        setMinimumSize(new java.awt.Dimension(950, 500));
+        setMinimumSize(new java.awt.Dimension(1050, 500));
         setLocationRelativeTo(null);
         jDateChooser.setDateFormatString("dd.MM.yyyy");
 
@@ -94,7 +94,7 @@ public class PrikaziPregledForma extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
                 .addGap(10, 10, 10)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
