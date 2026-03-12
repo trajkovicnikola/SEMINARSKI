@@ -49,7 +49,7 @@ public class Komunikacija {
     }
 
     private Odgovor primiOdgovor() {
-        Odgovor odgovor = primiOdgovor();
+        Odgovor odgovor = (Odgovor) primalac.primi();
         if (odgovor == null) {
             throw new RuntimeException("Server je ugasen");
         }
