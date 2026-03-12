@@ -15,7 +15,7 @@ import javax.swing.table.AbstractTableModel;
 public class ModelTabeleStavka extends AbstractTableModel {
     
     private List<StavkaPregleda> lista;
-    private String[] kolone={"RB","Kolicina", "Iznos", "Tretman"};
+    private String[] kolone={"RB","Kolicina", "Cena", "Iznos", "Tretman"};
 
     public ModelTabeleStavka(List<StavkaPregleda> lista) {
         this.lista = lista;
@@ -50,8 +50,10 @@ public class ModelTabeleStavka extends AbstractTableModel {
             case 1:
                 return sp.getKolicina();
             case 2:
-                return sp.getIznos();
+                return sp.getCena();
             case 3:
+                return sp.getIznos();
+            case 4:
                 return sp.getTretman();
             default:
                 return "N/A";
