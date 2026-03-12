@@ -6,6 +6,7 @@ package forme.tretman;
 
 import java.awt.event.ActionListener;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 
 /**
  *
@@ -35,6 +36,10 @@ public class PrikaziTretmanForma extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableTretman = new javax.swing.JTable();
         jButtonIzmeni = new javax.swing.JButton();
+        jButtonPretrazi = new javax.swing.JButton();
+        jButtonResetujPretragu = new javax.swing.JButton();
+        jTextFieldNaziv = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -53,25 +58,37 @@ public class PrikaziTretmanForma extends javax.swing.JFrame {
 
         jButtonIzmeni.setText("Izmeni");
 
+        jButtonPretrazi.setText("Pretrazi");
+
+        jButtonResetujPretragu.setText("Resetuj pretragu");
+
+        jLabel1.setText("Naziv:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
+        layout.setAutoCreateGaps(true);
+        layout.setAutoCreateContainerGaps(true);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
-                .addGap(12, 12, 12)
-                .addComponent(jButtonIzmeni)
-                .addContainerGap())
+                .addComponent(jLabel1)
+                .addComponent(jTextFieldNaziv, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                .addComponent(jButtonPretrazi)
+                .addComponent(jButtonResetujPretragu))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+                .addComponent(jButtonIzmeni))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonIzmeni)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE))
-                .addContainerGap(15, Short.MAX_VALUE))
+            layout.createSequentialGroup()
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jLabel1)
+                .addComponent(jTextFieldNaziv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonPretrazi)
+                .addComponent(jButtonResetujPretragu))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                .addComponent(jButtonIzmeni))
         );
 
         pack();
@@ -120,14 +137,34 @@ public class PrikaziTretmanForma extends javax.swing.JFrame {
         this.jTableTretman = jTableTretman;
     }
 
+    public JTextField getjTextFieldNaziv() {
+        return jTextFieldNaziv;
+    }
+
+    public void setjTextFieldNaziv(JTextField jTextFieldNaziv) {
+        this.jTextFieldNaziv = jTextFieldNaziv;
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonIzmeni;
+    private javax.swing.JButton jButtonPretrazi;
+    private javax.swing.JButton jButtonResetujPretragu;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableTretman;
+    private javax.swing.JTextField jTextFieldNaziv;
     // End of variables declaration//GEN-END:variables
 
 
     public void addIzmeniTretmanActionListener(ActionListener actionListener) {
         jButtonIzmeni.addActionListener(actionListener);
+    }
+
+    public void addResetujPretraguActionListener(ActionListener actionListener) {
+        jButtonResetujPretragu.addActionListener(actionListener);
+    }
+
+    public void addPretraziActionListener(ActionListener actionListener) {
+        jButtonPretrazi.addActionListener(actionListener);
     }
 }

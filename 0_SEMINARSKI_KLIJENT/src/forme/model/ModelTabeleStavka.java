@@ -66,6 +66,14 @@ public class ModelTabeleStavka extends AbstractTableModel {
     }
 
     public void dodajStavku(StavkaPregleda sp) {
+        for(StavkaPregleda stavka:lista){
+            if(sp.getTretman().getTretmanID()==stavka.getTretman().getTretmanID()){
+                stavka.setKolicina(stavka.getKolicina()+sp.getKolicina());
+                stavka.setIznos(stavka.getTretman().getCena()*stavka.getKolicina());
+                fireTableDataChanged();
+                return;
+            }
+        }
         int rb=lista.size()+1;
         sp.setRb(rb);
         lista.add(sp);
