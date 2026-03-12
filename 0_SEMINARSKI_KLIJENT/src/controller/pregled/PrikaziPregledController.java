@@ -45,7 +45,17 @@ public class PrikaziPregledController {
 
         List<StavkaPregleda> stavke = new ArrayList<>();
         ModelTabeleStavka mts = new ModelTabeleStavka(stavke);
+        setStavkeModel(mts);
+    }
+
+    private void setStavkeModel(ModelTabeleStavka mts) {
         pkf.getjTableStavkaPregleda().setModel(mts);
+        javax.swing.JTable t = pkf.getjTableStavkaPregleda();
+        t.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_LAST_COLUMN);
+        t.getColumnModel().getColumn(0).setPreferredWidth(30);
+        t.getColumnModel().getColumn(1).setPreferredWidth(60);
+        t.getColumnModel().getColumn(2).setPreferredWidth(70);
+        t.getColumnModel().getColumn(3).setPreferredWidth(70);
     }
 
     private void addMouseListener() {
@@ -57,7 +67,7 @@ public class PrikaziPregledController {
                     ModelTabelePregled mtp = (ModelTabelePregled) pkf.getjTablePregled().getModel();
                     Pregled p = mtp.getLista().get(selektovaniRed);
                     ModelTabeleStavka mts = new ModelTabeleStavka(p.getStavkePregleda());
-                    pkf.getjTableStavkaPregleda().setModel(mts);
+                    setStavkeModel(mts);
                 }
             }
 
@@ -84,7 +94,7 @@ public class PrikaziPregledController {
 
                 List<StavkaPregleda> stavke = new ArrayList<>();
                 ModelTabeleStavka mts = new ModelTabeleStavka(stavke);
-                pkf.getjTableStavkaPregleda().setModel(mts);
+                setStavkeModel(mts);
             }
 
         });
