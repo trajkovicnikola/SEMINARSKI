@@ -48,6 +48,14 @@ public class Komunikacija {
         return instance;
     }
 
+    private Odgovor primiOdgovor() {
+        Odgovor odgovor = primiOdgovor();
+        if (odgovor == null) {
+            throw new RuntimeException("Server je ugasen");
+        }
+        return odgovor;
+    }
+
     public Zaposleni login(String email, String sifra) throws Exception {
 
         Zaposleni z = new Zaposleni();
@@ -55,7 +63,7 @@ public class Komunikacija {
         z.setSifra(sifra);
         Zahtev zahtev = new Zahtev(Operacija.LOGIN, z);
         posiljalac.posalji(zahtev);
-        Odgovor odgovor = (Odgovor) primalac.primi();
+        Odgovor odgovor = primiOdgovor();
         if (odgovor.getOdgovor() instanceof Exception) {
             throw (Exception) odgovor.getOdgovor();
         }
@@ -66,7 +74,7 @@ public class Komunikacija {
     public List<Klijent> ucitajKlijente(Klijent k) {
         Zahtev zahtev = new Zahtev(Operacija.UCITAJ_KLIJENTE, k);
         posiljalac.posalji(zahtev);
-        Odgovor odgovor = (Odgovor) primalac.primi();
+        Odgovor odgovor = primiOdgovor();
         List<Klijent> sviKlijenti = (List<Klijent>) odgovor.getOdgovor();
         return sviKlijenti;
     }
@@ -74,7 +82,7 @@ public class Komunikacija {
     public void dodajKlijenta(Klijent k) throws Exception {
         Zahtev zahtev = new Zahtev(Operacija.DODAJ_KLIJENTA, k);
         posiljalac.posalji(zahtev);
-        Odgovor odgovor = (Odgovor) primalac.primi();
+        Odgovor odgovor = primiOdgovor();
         if (odgovor.getOdgovor() != null) {
             throw (Exception) odgovor.getOdgovor();
         }
@@ -83,7 +91,7 @@ public class Komunikacija {
     public void izmeniKlijenta(Klijent k) throws Exception {
         Zahtev zahtev = new Zahtev(Operacija.IZMENI_KLIJENTA, k);
         posiljalac.posalji(zahtev);
-        Odgovor odgovor = (Odgovor) primalac.primi();
+        Odgovor odgovor = primiOdgovor();
         if (odgovor.getOdgovor() != null) {
             throw (Exception) odgovor.getOdgovor();
         }
@@ -92,7 +100,7 @@ public class Komunikacija {
     public List<Pregled> ucitajPreglede(Pregled p) {
         Zahtev zahtev = new Zahtev(Operacija.UCITAJ_PREGLED, p);
         posiljalac.posalji(zahtev);
-        Odgovor odgovor = (Odgovor) primalac.primi();
+        Odgovor odgovor = primiOdgovor();
         List<Pregled> lista = (List<Pregled>) odgovor.getOdgovor();
         return lista;
     }
@@ -100,7 +108,7 @@ public class Komunikacija {
     public void obrisiPregled(Pregled p) throws Exception {
         Zahtev zahtev = new Zahtev(Operacija.OBRISI_PREGLED, p);
         posiljalac.posalji(zahtev);
-        Odgovor odgovor = (Odgovor) primalac.primi();
+        Odgovor odgovor = primiOdgovor();
         if (odgovor.getOdgovor() != null) {
             throw (Exception) odgovor.getOdgovor();
         }
@@ -109,7 +117,7 @@ public class Komunikacija {
     public List<Grad> ucitajGradove(Grad g) {
         Zahtev zahtev = new Zahtev(Operacija.UCITAJ_GRADOVE, g);
         posiljalac.posalji(zahtev);
-        Odgovor odgovor = (Odgovor) primalac.primi();
+        Odgovor odgovor = primiOdgovor();
         List<Grad> gradovi = (List<Grad>) odgovor.getOdgovor();
         return gradovi;
     }
@@ -117,7 +125,7 @@ public class Komunikacija {
     public List<Tretman> ucitajTretmane(Tretman t) {
         Zahtev zahtev = new Zahtev(Operacija.UCITAJ_TRETMANE, t);
         posiljalac.posalji(zahtev);
-        Odgovor odgovor = (Odgovor) primalac.primi();
+        Odgovor odgovor = primiOdgovor();
         List<Tretman> tretmani = (List<Tretman>) odgovor.getOdgovor();
         return tretmani;
     }
@@ -125,7 +133,7 @@ public class Komunikacija {
     public void dodajTretman(Tretman t) throws Exception {
         Zahtev zahtev = new Zahtev(Operacija.DODAJ_TRETMAN, t);
         posiljalac.posalji(zahtev);
-        Odgovor odgovor = (Odgovor) primalac.primi();
+        Odgovor odgovor = primiOdgovor();
         if (odgovor.getOdgovor() != null) {
             throw (Exception) odgovor.getOdgovor();
         }
@@ -134,7 +142,7 @@ public class Komunikacija {
     public void izmeniTretman(Tretman t) throws Exception {
         Zahtev zahtev = new Zahtev(Operacija.IZMENI_TRETMAN, t);
         posiljalac.posalji(zahtev);
-        Odgovor odgovor = (Odgovor) primalac.primi();
+        Odgovor odgovor = primiOdgovor();
         if (odgovor.getOdgovor() != null) {
             throw (Exception) odgovor.getOdgovor();
         }
@@ -143,7 +151,7 @@ public class Komunikacija {
     public void dodajPregled(Pregled p) throws Exception {
         Zahtev zahtev = new Zahtev(Operacija.KREIRAJ_PREGLED, p);
         posiljalac.posalji(zahtev);
-        Odgovor odgovor = (Odgovor) primalac.primi();
+        Odgovor odgovor = primiOdgovor();
         if (odgovor.getOdgovor() != null) {
             throw (Exception) odgovor.getOdgovor();
         }
@@ -153,7 +161,7 @@ public class Komunikacija {
         Zahtev zahtev = new Zahtev(Operacija.LOGOUT, z);
         posiljalac.posalji(zahtev);
 
-        Odgovor odgovor = (Odgovor) primalac.primi();
+        Odgovor odgovor = primiOdgovor();
         if (odgovor.getOdgovor() != null) {
             throw (Exception) odgovor.getOdgovor();
         }

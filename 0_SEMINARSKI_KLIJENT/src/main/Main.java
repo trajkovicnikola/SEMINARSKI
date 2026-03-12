@@ -21,6 +21,17 @@ public class Main {
         } catch (Exception e) {
             // ostaje default L&F
         }
+        Thread.setDefaultUncaughtExceptionHandler((thread, throwable) -> {
+            if ("Server je ugasen".equals(throwable.getMessage())) {
+                javax.swing.SwingUtilities.invokeLater(() -> {
+                    javax.swing.JOptionPane.showMessageDialog(null,
+                            "Veza sa serverom je prekinuta. Aplikacija ce se zatvoriti.",
+                            "Server ugasen",
+                            javax.swing.JOptionPane.ERROR_MESSAGE);
+                    System.exit(0);
+                });
+            }
+        });
         kordinator.Kordinator.getInstance().otvoriLoginFormu();
     }
     
