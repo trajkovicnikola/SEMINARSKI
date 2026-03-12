@@ -79,12 +79,12 @@ public class DodajTretmanForma extends javax.swing.JFrame {
                             .addComponent(jTextFieldCena, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextFieldNaziv, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE))))
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(41, 41, 41)
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jTextFieldNaziv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -100,7 +100,7 @@ public class DodajTretmanForma extends javax.swing.JFrame {
                 .addComponent(jButtonIzmeni)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonDodaj)
-                .addContainerGap(94, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
