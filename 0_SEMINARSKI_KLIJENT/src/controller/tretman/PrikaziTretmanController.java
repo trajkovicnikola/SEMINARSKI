@@ -57,9 +57,28 @@ public class PrikaziTretmanController {
                 Kordinator.getInstance().otvoriDodajTretmanFormu(FormaMod.IZMENI);
             }
         });
+        
+        ptf.addResetujPretraguActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                osveziTabelu();
+            }
+        });
+        
+        ptf.addPretraziActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String naziv=ptf.getjTextFieldNaziv().getText().trim();
+                Tretman t=new Tretman(-1,naziv, "", 0);
+                List<Tretman> lista=Komunikacija.getInstance().ucitajTretmane(t);
+                ModelTabeleTretman mtt=new ModelTabeleTretman(lista);
+                ptf.getjTableTretman().setModel(mtt);
+            }
+        });
     }
 
     public void osveziTabelu() {
+        ptf.getjTextFieldNaziv().setText("");
         pripremiFormu();
     }
 

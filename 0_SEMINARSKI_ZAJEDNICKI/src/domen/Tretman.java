@@ -139,13 +139,22 @@ public class Tretman implements ApstraktniDomenskiObjekat {
 
     @Override
     public String vratiUslovZaSelect() {
-        return "";
+        String uslov = "";
+
+        if (naziv != null && !naziv.trim().isEmpty()) {
+            uslov += " tretman.naziv LIKE '%" + naziv.trim() + "%'";
+        }
+
+        if (uslov.isEmpty()) {
+            return "";
+        }
+
+        return uslov;
     }
 
     @Override
     public String vratiDodatniUslov() {
         return "";
     }
-    
-   
+
 }

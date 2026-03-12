@@ -42,7 +42,7 @@ public class LoginOperacija extends ApstraktnaGenerickaOperacija {
                 return;
             }
         }
-        throw new Exception("Sistem nije pronasao zaposlenog");
+        throw new Exception("Korisnicko ime i sifra nisu ispravni");
     }
 
     public Zaposleni getZaposleni() {

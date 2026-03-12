@@ -37,7 +37,7 @@ public class LoginController {
                     String sifra = String.valueOf(lf.getjPasswordField1().getPassword());
                     Zaposleni ulogovani = Komunikacija.getInstance().login(email, sifra);
                     kordinator.Kordinator.getInstance().setUlogovani(ulogovani);
-                    JOptionPane.showMessageDialog(lf, "Prijava na sistem je uspesna", "USPEH", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(lf, "Korisnicko ime i sifra su ispravni", "USPEH", JOptionPane.INFORMATION_MESSAGE);
                     lf.dispose();
                     kordinator.Kordinator.getInstance().otvoriGlavnuFormu();
                 } catch (Exception ex) {
