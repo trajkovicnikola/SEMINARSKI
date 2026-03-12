@@ -56,6 +56,7 @@ public class GlavnaForma extends javax.swing.JFrame {
         jTextFieldKolicina = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jButtonKreirajPregled = new javax.swing.JButton();
+        jButtonOdustani = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuKlijent = new javax.swing.JMenu();
         jMenuItemDodajKlijenta = new javax.swing.JMenuItem();
@@ -140,6 +141,9 @@ public class GlavnaForma extends javax.swing.JFrame {
 
         jButtonKreirajPregled.setText("Kreiraj pregled");
 
+        jButtonOdustani.setText("Odustani");
+        jButtonOdustani.setVisible(false);
+
         jMenuKlijent.setText("Klijent");
 
         jMenuItemDodajKlijenta.setText("Dodaj");
@@ -196,7 +200,9 @@ public class GlavnaForma extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(12, 12, 12)
-                        .addComponent(jButtonKreirajPregled, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonKreirajPregled, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonOdustani, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -217,7 +223,9 @@ public class GlavnaForma extends javax.swing.JFrame {
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(8, 8, 8)
-                        .addComponent(jButtonKreirajPregled, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButtonKreirajPregled, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(8, 8, 8)
+                        .addComponent(jButtonOdustani, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
@@ -358,6 +366,7 @@ public class GlavnaForma extends javax.swing.JFrame {
     private javax.swing.JButton jButtonDodajStavku;
     private javax.swing.JButton jButtonKreirajPregled;
     private javax.swing.JButton jButtonObrisiStavku;
+    private javax.swing.JButton jButtonOdustani;
     private javax.swing.JComboBox<Klijent> jComboBoxKlijent;
     private javax.swing.JComboBox<Tretman> jComboBoxTretman;
     private javax.swing.JLabel jLabel1;
@@ -422,6 +431,14 @@ public class GlavnaForma extends javax.swing.JFrame {
 
     public JButton getjButtonKreirajPregled() {
         return jButtonKreirajPregled;
+    }
+
+    public JButton getjButtonOdustani() {
+        return jButtonOdustani;
+    }
+
+    public void odustaniActionListener(ActionListener actionListener) {
+        jButtonOdustani.addActionListener(actionListener);
     }
 
 }

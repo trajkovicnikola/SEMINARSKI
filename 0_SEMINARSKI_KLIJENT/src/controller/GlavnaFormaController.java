@@ -26,6 +26,8 @@ import komunikacija.Komunikacija;
 import kordinator.Kordinator;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import com.github.lgooddatepicker.components.TimePickerSettings;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 /**
  *
@@ -124,6 +126,13 @@ public class GlavnaFormaController {
             }
         });
 
+        gf.odustaniActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                resetujNaDodajMod();
+            }
+        });
+
         gf.kreirajPregledActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -198,6 +207,7 @@ public class GlavnaFormaController {
         gf.getjTableStavka().setModel(mts);
 
         gf.getjButtonKreirajPregled().setText("Izmeni pregled");
+        gf.getjButtonOdustani().setVisible(true);
         gf.toFront();
         gf.requestFocus();
     }
@@ -205,6 +215,7 @@ public class GlavnaFormaController {
     private void resetujNaDodajMod() {
         pregledZaIzmenu = null;
         gf.getjButtonKreirajPregled().setText("Kreiraj pregled");
+        gf.getjButtonOdustani().setVisible(false);
         gf.getjTableStavka().setModel(new ModelTabeleStavka(new ArrayList<>()));
         gf.getDateTimePicker().setDateTimeStrict(null);
     }
