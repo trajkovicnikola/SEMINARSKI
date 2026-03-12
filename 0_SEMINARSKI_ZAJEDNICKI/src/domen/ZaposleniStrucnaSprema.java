@@ -4,6 +4,7 @@
  */
 package domen;
 
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +14,7 @@ public class ZaposleniStrucnaSprema implements ApstraktniDomenskiObjekat {
 
     private Zaposleni zaposleni;
     private StrucnaSprema strucnaSprema;
+    private Date datumKvalifikacije;
 
     public ZaposleniStrucnaSprema() {
     }
@@ -20,6 +22,12 @@ public class ZaposleniStrucnaSprema implements ApstraktniDomenskiObjekat {
     public ZaposleniStrucnaSprema(Zaposleni zaposleni, StrucnaSprema strucnaSprema) {
         this.zaposleni = zaposleni;
         this.strucnaSprema = strucnaSprema;
+    }
+
+    public ZaposleniStrucnaSprema(Zaposleni zaposleni, StrucnaSprema strucnaSprema, Date datumKvalifikacije) {
+        this.zaposleni = zaposleni;
+        this.strucnaSprema = strucnaSprema;
+        this.datumKvalifikacije = datumKvalifikacije;
     }
 
     public Zaposleni getZaposleni() {
@@ -36,6 +44,14 @@ public class ZaposleniStrucnaSprema implements ApstraktniDomenskiObjekat {
 
     public void setStrucnaSprema(StrucnaSprema strucnaSprema) {
         this.strucnaSprema = strucnaSprema;
+    }
+
+    public Date getDatumKvalifikacije() {
+        return datumKvalifikacije;
+    }
+
+    public void setDatumKvalifikacije(Date datumKvalifikacije) {
+        this.datumKvalifikacije = datumKvalifikacije;
     }
 
     @Override
@@ -84,7 +100,8 @@ public class ZaposleniStrucnaSprema implements ApstraktniDomenskiObjekat {
 
             StrucnaSprema ss = new StrucnaSprema(strucnaSpremaID, naziv);
 
-            ZaposleniStrucnaSprema zapss = new ZaposleniStrucnaSprema(z, ss);
+            Date datumKvalifikacije = rs.getDate("zapss.datumKvalifikacije");
+            ZaposleniStrucnaSprema zapss = new ZaposleniStrucnaSprema(z, ss, datumKvalifikacije);
             lista.add(zapss);
         }
 
@@ -93,12 +110,13 @@ public class ZaposleniStrucnaSprema implements ApstraktniDomenskiObjekat {
 
     @Override
     public String vratiKoloneZaUbacivanje() {
-        return "zaposleniID, strucnaSpremaID";
+        return "zaposleniID, strucnaSpremaID, datumKvalifikacije";
     }
 
     @Override
     public String vratiVrednostZaUbacivanje() {
-        return zaposleni.getZaposleniID() + ", " + strucnaSprema.getStrucnaSpremaID();
+        return zaposleni.getZaposleniID() + ", " + strucnaSprema.getStrucnaSpremaID()
+                + ", '" + datumKvalifikacije + "'";
     }
 
     @Override
@@ -124,7 +142,8 @@ public class ZaposleniStrucnaSprema implements ApstraktniDomenskiObjekat {
     @Override
     public String vratiVrednostiZaIzmenu() {
         return "zaposleniID=" + zaposleni.getZaposleniID()
-                + ", strucnaSpremaID=" + strucnaSprema.getStrucnaSpremaID();
+                + ", strucnaSpremaID=" + strucnaSprema.getStrucnaSpremaID()
+                + ", datumKvalifikacije='" + datumKvalifikacije + "'";
     }
 
     @Override
