@@ -20,6 +20,10 @@ public class DodajPregledOperacija extends ApstraktnaGenerickaOperacija {
         if(param==null || !(param instanceof Pregled)){
             throw new Exception("Sistem ne moze da kreira pregled");
         }
+        Pregled p=(Pregled)param;
+        if(p.getStavkePregleda()==null || p.getStavkePregleda().isEmpty()){
+            throw new Exception("Pregled mora imati bar jednu stavku pregleda");
+        }
     }
 
     @Override

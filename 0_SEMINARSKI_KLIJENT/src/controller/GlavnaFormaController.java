@@ -137,10 +137,6 @@ public class GlavnaFormaController {
                 Klijent k = (Klijent) gf.getjComboBoxKlijent().getSelectedItem();
                 ModelTabeleStavka mts = (ModelTabeleStavka) gf.getjTableStavka().getModel();
                 List<StavkaPregleda> stavke = mts.getLista();
-                if (stavke.isEmpty()) {
-                    JOptionPane.showMessageDialog(gf, "Pregled mora imati bar 1 stavku pregleda", "GRESKA", JOptionPane.ERROR_MESSAGE);
-                    return;
-                }
                 double ukupanIznos = 0;
                 for (StavkaPregleda stavka : stavke) {
                     ukupanIznos += stavka.getIznos();
