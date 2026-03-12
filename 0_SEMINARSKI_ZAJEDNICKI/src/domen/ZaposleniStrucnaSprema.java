@@ -19,11 +19,6 @@ public class ZaposleniStrucnaSprema implements ApstraktniDomenskiObjekat {
     public ZaposleniStrucnaSprema() {
     }
 
-    public ZaposleniStrucnaSprema(Zaposleni zaposleni, StrucnaSprema strucnaSprema) {
-        this.zaposleni = zaposleni;
-        this.strucnaSprema = strucnaSprema;
-    }
-
     public ZaposleniStrucnaSprema(Zaposleni zaposleni, StrucnaSprema strucnaSprema, Date datumKvalifikacije) {
         this.zaposleni = zaposleni;
         this.strucnaSprema = strucnaSprema;
@@ -136,7 +131,7 @@ public class ZaposleniStrucnaSprema implements ApstraktniDomenskiObjekat {
         StrucnaSprema ss = new StrucnaSprema();
         ss.setStrucnaSpremaID(strucnaSpremaID);
 
-        return new ZaposleniStrucnaSprema(z, ss);
+        return new ZaposleniStrucnaSprema(z, ss, null);
     }
 
     @Override
