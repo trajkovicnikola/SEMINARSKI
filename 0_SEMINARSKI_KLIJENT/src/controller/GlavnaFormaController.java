@@ -165,6 +165,7 @@ public class GlavnaFormaController {
                     try {
                         Komunikacija.getInstance().dodajPregled(p);
                         JOptionPane.showMessageDialog(gf, "Sistem je uspesno kreirao pregled", "USPEH", JOptionPane.INFORMATION_MESSAGE);
+                        resetujNaDodajMod();
                     } catch (Exception ex) {
                         JOptionPane.showMessageDialog(gf, ex.getMessage(), "GRESKA", JOptionPane.ERROR_MESSAGE);
                     }
