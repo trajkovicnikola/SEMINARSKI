@@ -31,7 +31,7 @@ public class Posiljalac {
     
     public void posalji(Object obj){
         try {
-            
+            out.reset();
             out.writeObject(obj);
             out.flush();
         } catch (IOException ex) {

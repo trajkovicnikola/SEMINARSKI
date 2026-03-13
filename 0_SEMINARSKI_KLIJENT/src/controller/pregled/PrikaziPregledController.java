@@ -118,6 +118,11 @@ public class PrikaziPregledController {
                 }
                 ModelTabelePregled mtp = (ModelTabelePregled) pkf.getjTablePregled().getModel();
                 Pregled p = mtp.getLista().get(selektovaniRed);
+                int ulogovanID = kordinator.Kordinator.getInstance().getUlogovani().getZaposleniID();
+                if (p.getZaposleni().getZaposleniID() != ulogovanID) {
+                    JOptionPane.showMessageDialog(pkf, "Ne mozete menjati tudji pregled", "GRESKA", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
                 kordinator.Kordinator.getInstance().aktivirajIzmeniPregledMod(p);
             }
         });

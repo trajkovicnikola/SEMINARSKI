@@ -152,7 +152,7 @@ public class GlavnaFormaController {
                 Zaposleni z = Kordinator.getInstance().getUlogovani();
 
                 if (pregledZaIzmenu != null) {
-                    Pregled p = new Pregled(pregledZaIzmenu.getPregledID(), z, k, pregledZaIzmenu.getDatumRezervacije(), datumPregleda, ukupanIznos, stavke);
+                    Pregled p = new Pregled(pregledZaIzmenu.getPregledID(), z, k, new Date(), datumPregleda, ukupanIznos, stavke);
                     try {
                         Komunikacija.getInstance().izmeniPregled(p);
                         JOptionPane.showMessageDialog(gf, "Sistem je uspesno izmenio pregled", "USPEH", JOptionPane.INFORMATION_MESSAGE);
