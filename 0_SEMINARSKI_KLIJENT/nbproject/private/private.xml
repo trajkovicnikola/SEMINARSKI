@@ -2,6 +2,18 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/trajk/OneDrive/Documents/NetBeansProjects/SEMINARSKI/0_SEMINARSKI_KLIJENT/src/forme/model/ModelTabeleStavka.java</file>
+            <file>file:/C:/Users/trajk/OneDrive/Documents/NetBeansProjects/SEMINARSKI/0_SEMINARSKI_KLIJENT/src/forme/tretman/PrikaziTretmanForma.java</file>
+            <file>file:/C:/Users/trajk/OneDrive/Documents/NetBeansProjects/SEMINARSKI/0_SEMINARSKI_KLIJENT/src/forme/tretman/DodajTretmanForma.java</file>
+            <file>file:/C:/Users/trajk/OneDrive/Documents/NetBeansProjects/SEMINARSKI/0_SEMINARSKI_KLIJENT/src/controller/klijent/PretraziKlijentaController.java</file>
+            <file>file:/C:/Users/trajk/OneDrive/Documents/NetBeansProjects/SEMINARSKI/0_SEMINARSKI_KLIJENT/src/controller/tretman/PrikaziTretmanController.java</file>
+            <file>file:/C:/Users/trajk/OneDrive/Documents/NetBeansProjects/SEMINARSKI/0_SEMINARSKI_KLIJENT/src/controller/pregled/PrikaziPregledController.java</file>
+            <file>file:/C:/Users/trajk/OneDrive/Documents/NetBeansProjects/SEMINARSKI/0_SEMINARSKI_KLIJENT/src/forme/klijent/PretraziKlijentaForma.java</file>
+            <file>file:/C:/Users/trajk/OneDrive/Documents/NetBeansProjects/SEMINARSKI/0_SEMINARSKI_KLIJENT/src/kordinator/Kordinator.java</file>
+            <file>file:/C:/Users/trajk/OneDrive/Documents/NetBeansProjects/SEMINARSKI/0_SEMINARSKI_KLIJENT/src/forme/GlavnaForma.java</file>
+            <file>file:/C:/Users/trajk/OneDrive/Documents/NetBeansProjects/SEMINARSKI/0_SEMINARSKI_KLIJENT/src/controller/GlavnaFormaController.java</file>
+            <file>file:/C:/Users/trajk/OneDrive/Documents/NetBeansProjects/SEMINARSKI/0_SEMINARSKI_KLIJENT/src/komunikacija/Komunikacija.java</file>
+        </group>
     </open-files>
 </project-private>

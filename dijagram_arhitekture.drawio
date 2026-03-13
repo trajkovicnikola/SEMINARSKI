@@ -1,0 +1,408 @@
+<mxfile host="app.diagrams.net" modified="2026-03-13" agent="Claude" version="21.0.0" type="device">
+  <diagram name="Arhitektura softverskog sistema" id="seminarski-arch">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="3000" pageHeight="2000" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- ===== SOFTVERSKI SISTEM – outer border ===== -->
+        <mxCell id="border" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="10" y="10" width="2970" height="1970" as="geometry"/>
+        </mxCell>
+        <mxCell id="ss_lbl" value="SOFTVERSKI SISTEM" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="20" y="14" width="260" height="28" as="geometry"/>
+        </mxCell>
+
+        <!-- ===== SKLADISTE PODATAKA (top-left) ===== -->
+        <mxCell id="stor" value="Skladiste podataka" style="swimlane;startSize=28;fillColor=none;strokeColor=#000000;fontStyle=1;fontSize=11;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="20" y="50" width="410" height="330" as="geometry"/>
+        </mxCell>
+        <mxCell id="db_zap"  value="zaposleni"           style="rounded=0;whiteSpace=wrap;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=10;" vertex="1" parent="stor"><mxGeometry x="10"  y="40"  width="180" height="38" as="geometry"/></mxCell>
+        <mxCell id="db_kl"  value="klijent"              style="rounded=0;whiteSpace=wrap;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=10;" vertex="1" parent="stor"><mxGeometry x="210" y="40"  width="180" height="38" as="geometry"/></mxCell>
+        <mxCell id="db_gr"  value="grad"                 style="rounded=0;whiteSpace=wrap;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=10;" vertex="1" parent="stor"><mxGeometry x="10"  y="98"  width="180" height="38" as="geometry"/></mxCell>
+        <mxCell id="db_tr"  value="tretman"              style="rounded=0;whiteSpace=wrap;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=10;" vertex="1" parent="stor"><mxGeometry x="210" y="98"  width="180" height="38" as="geometry"/></mxCell>
+        <mxCell id="db_pr"  value="pregled"              style="rounded=0;whiteSpace=wrap;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=10;" vertex="1" parent="stor"><mxGeometry x="10"  y="156" width="180" height="38" as="geometry"/></mxCell>
+        <mxCell id="db_sp"  value="stavkapregleda"       style="rounded=0;whiteSpace=wrap;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=10;" vertex="1" parent="stor"><mxGeometry x="210" y="156" width="180" height="38" as="geometry"/></mxCell>
+        <mxCell id="db_ss"  value="strucnasprema"        style="rounded=0;whiteSpace=wrap;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=10;" vertex="1" parent="stor"><mxGeometry x="10"  y="214" width="180" height="38" as="geometry"/></mxCell>
+        <mxCell id="db_zss" value="zaposlenistrcnasprema" style="rounded=0;whiteSpace=wrap;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=10;" vertex="1" parent="stor"><mxGeometry x="210" y="214" width="180" height="38" as="geometry"/></mxCell>
+        <mxCell id="dbbroker" value="DATABASE BROKER" style="text;html=1;align=center;fontStyle=1;strokeColor=none;fillColor=none;fontSize=10;" vertex="1" parent="stor">
+          <mxGeometry x="110" y="280" width="190" height="28" as="geometry"/>
+        </mxCell>
+
+        <!-- ===== APLIKACIONA LOGIKA (top-right) ===== -->
+        <mxCell id="al" value="APLIKACIONA LOGIKA" style="swimlane;startSize=28;fillColor=none;strokeColor=#000000;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="450" y="30" width="2520" height="900" as="geometry"/>
+        </mxCell>
+        <mxCell id="al_sub" value="Struktura softverskog sistema" style="text;html=1;align=center;strokeColor=none;fillColor=none;fontStyle=2;fontSize=9;" vertex="1" parent="al">
+          <mxGeometry x="820" y="5" width="260" height="18" as="geometry"/>
+        </mxCell>
+
+        <!-- ApstraktniDomenskiObjekat (interface) -->
+        <mxCell id="ado" value="«interface»&#xa;ApstraktniDomenskiObjekat" style="swimlane;startSize=44;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontStyle=3;align=center;fontSize=10;" vertex="1" parent="al">
+          <mxGeometry x="830" y="40" width="310" height="240" as="geometry"/>
+        </mxCell>
+        <mxCell id="ado_m" value="+vratiNazivTabele(): String&#xa;+vratiListu(ResultSet): List&#xa;+vratiKoloneZaUbacivanje(): String&#xa;+vratiVrednostZaUbacivanje(): String&#xa;+vratiPrimarniKljuc(): String&#xa;+vratiObjekatIzRS(ResultSet): ADO&#xa;+vratiVrednostiZaIzmenu(): String&#xa;+vratiJoin(): String&#xa;+vratiUslovZaSelect(): String&#xa;+vratiDodatniUslov(): String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;overflow=hidden;fontSize=9;" vertex="1" parent="ado">
+          <mxGeometry y="44" width="310" height="196" as="geometry"/>
+        </mxCell>
+
+        <!-- Zaposleni -->
+        <mxCell id="zap" value="Zaposleni" style="swimlane;startSize=26;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=10;" vertex="1" parent="al">
+          <mxGeometry x="20" y="340" width="220" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="zap_f" value="-zaposleniID: int&#xa;-ime: String&#xa;-prezime: String&#xa;-email: String&#xa;-sifra: String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;overflow=hidden;fontSize=9;" vertex="1" parent="zap">
+          <mxGeometry y="26" width="220" height="114" as="geometry"/>
+        </mxCell>
+
+        <!-- StrucnaSprema -->
+        <mxCell id="ss" value="StrucnaSprema" style="swimlane;startSize=26;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=10;" vertex="1" parent="al">
+          <mxGeometry x="20" y="530" width="220" height="82" as="geometry"/>
+        </mxCell>
+        <mxCell id="ss_f" value="-strucnaSpremaID: int&#xa;-naziv: String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;overflow=hidden;fontSize=9;" vertex="1" parent="ss">
+          <mxGeometry y="26" width="220" height="56" as="geometry"/>
+        </mxCell>
+
+        <!-- ZaposleniStrucnaSprema -->
+        <mxCell id="zss" value="ZaposleniStrucnaSprema" style="swimlane;startSize=26;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=10;" vertex="1" parent="al">
+          <mxGeometry x="20" y="660" width="220" height="96" as="geometry"/>
+        </mxCell>
+        <mxCell id="zss_f" value="-zaposleni: Zaposleni&#xa;-strucnaSprema: StrucnaSprema&#xa;-datumKvalifikacije: Date" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;overflow=hidden;fontSize=9;" vertex="1" parent="zss">
+          <mxGeometry y="26" width="220" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- Klijent -->
+        <mxCell id="kl" value="Klijent" style="swimlane;startSize=26;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=10;" vertex="1" parent="al">
+          <mxGeometry x="280" y="340" width="220" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="kl_f" value="-klijentID: int&#xa;-ime: String&#xa;-prezime: String&#xa;-telefon: String&#xa;-grad: Grad" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;overflow=hidden;fontSize=9;" vertex="1" parent="kl">
+          <mxGeometry y="26" width="220" height="114" as="geometry"/>
+        </mxCell>
+
+        <!-- Grad -->
+        <mxCell id="gr" value="Grad" style="swimlane;startSize=26;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=10;" vertex="1" parent="al">
+          <mxGeometry x="280" y="530" width="220" height="96" as="geometry"/>
+        </mxCell>
+        <mxCell id="gr_f" value="-gradID: int&#xa;-naziv: String&#xa;-postanskiBroj: String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;overflow=hidden;fontSize=9;" vertex="1" parent="gr">
+          <mxGeometry y="26" width="220" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- Pregled -->
+        <mxCell id="preg" value="Pregled" style="swimlane;startSize=26;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=10;" vertex="1" parent="al">
+          <mxGeometry x="550" y="310" width="250" height="196" as="geometry"/>
+        </mxCell>
+        <mxCell id="preg_f" value="-pregledID: int&#xa;-zaposleni: Zaposleni&#xa;-klijent: Klijent&#xa;-datumRezervacije: Date&#xa;-datumPregleda: Date&#xa;-ukupanIznos: double&#xa;-stavkePregleda: List&lt;StavkaPregleda&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;overflow=hidden;fontSize=9;" vertex="1" parent="preg">
+          <mxGeometry y="26" width="250" height="170" as="geometry"/>
+        </mxCell>
+
+        <!-- StavkaPregleda -->
+        <mxCell id="stav" value="StavkaPregleda" style="swimlane;startSize=26;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=10;" vertex="1" parent="al">
+          <mxGeometry x="550" y="560" width="220" height="154" as="geometry"/>
+        </mxCell>
+        <mxCell id="stav_f" value="-pregledID: int&#xa;-rb: int&#xa;-tretman: Tretman&#xa;-kolicina: int&#xa;-iznos: double&#xa;-cena: double" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;overflow=hidden;fontSize=9;" vertex="1" parent="stav">
+          <mxGeometry y="26" width="220" height="128" as="geometry"/>
+        </mxCell>
+
+        <!-- Tretman -->
+        <mxCell id="tret" value="Tretman" style="swimlane;startSize=26;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=10;" vertex="1" parent="al">
+          <mxGeometry x="820" y="340" width="210" height="126" as="geometry"/>
+        </mxCell>
+        <mxCell id="tret_f" value="-tretmanID: int&#xa;-naziv: String&#xa;-opis: String&#xa;-cena: double" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;overflow=hidden;fontSize=9;" vertex="1" parent="tret">
+          <mxGeometry y="26" width="210" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- Zahtev (communication protocol) -->
+        <mxCell id="zah" value="Zahtev" style="swimlane;startSize=26;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;fontSize=10;" vertex="1" parent="al">
+          <mxGeometry x="1710" y="40" width="240" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="zah_f" value="-operacija: Operacija&#xa;-parametar: Object&#xa;—&#xa;+getOperacija(): Operacija&#xa;+setOperacija(Operacija): void&#xa;+getParametar(): Object&#xa;+setParametar(Object): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;overflow=hidden;fontSize=9;" vertex="1" parent="zah">
+          <mxGeometry y="26" width="240" height="114" as="geometry"/>
+        </mxCell>
+
+        <!-- Odgovor (communication protocol) -->
+        <mxCell id="odg" value="Odgovor" style="swimlane;startSize=26;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;fontSize=10;" vertex="1" parent="al">
+          <mxGeometry x="1710" y="210" width="240" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="odg_f" value="-odgovor: Object&#xa;—&#xa;+getOdgovor(): Object&#xa;+setOdgovor(Object): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;overflow=hidden;fontSize=9;" vertex="1" parent="odg">
+          <mxGeometry y="26" width="240" height="74" as="geometry"/>
+        </mxCell>
+
+        <!-- Operacija enum -->
+        <mxCell id="oper" value="«enum» Operacija" style="swimlane;startSize=40;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;align=center;fontSize=10;" vertex="1" parent="al">
+          <mxGeometry x="1710" y="340" width="240" height="336" as="geometry"/>
+        </mxCell>
+        <mxCell id="oper_f" value="LOGIN&#xa;LOGOUT&#xa;UCITAJ_KLIJENTE&#xa;DODAJ_KLIJENTA&#xa;IZMENI_KLIJENTA&#xa;UCITAJ_GRADOVE&#xa;UCITAJ_TRETMANE&#xa;DODAJ_TRETMAN&#xa;IZMENI_TRETMAN&#xa;UCITAJ_PREGLED&#xa;KREIRAJ_PREGLED&#xa;IZMENI_PREGLED&#xa;OBRISI_PREGLED" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;overflow=hidden;fontSize=9;" vertex="1" parent="oper">
+          <mxGeometry y="40" width="240" height="296" as="geometry"/>
+        </mxCell>
+
+        <!-- ApstraktnaGenerickaOperacija (abstract, shown in AL section as it's shared pattern) -->
+        <mxCell id="ago_al" value="«abstract»&#xa;ApstraktnaGenerickaOperacija" style="swimlane;startSize=44;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontStyle=3;align=center;fontSize=10;" vertex="1" parent="al">
+          <mxGeometry x="2000" y="40" width="290" height="196" as="geometry"/>
+        </mxCell>
+        <mxCell id="ago_al_f" value="#broker: Repository&#xa;—&#xa;+izvrsi(Object, String): void&#xa;#preduslovi(Object): void&#xa;#izvrsiOperaciju(Object, String): void&#xa;#zapocniTransakciju(): void&#xa;#potvrdiTransakciju(): void&#xa;#ponistiTransakciju(): void&#xa;#ugasiKonekciju(): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;overflow=hidden;fontSize=9;" vertex="1" parent="ago_al">
+          <mxGeometry y="44" width="290" height="152" as="geometry"/>
+        </mxCell>
+
+        <!-- DbRepositoryGeneric -->
+        <mxCell id="dbrg" value="DbRepositoryGeneric" style="swimlane;startSize=26;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;fontSize=10;" vertex="1" parent="al">
+          <mxGeometry x="2000" y="270" width="280" height="154" as="geometry"/>
+        </mxCell>
+        <mxCell id="dbrg_f" value="«implements» DbRepository&#xa;—&#xa;+getAll(ADO, String): List&#xa;+add(ADO): void&#xa;+edit(ADO): void&#xa;+delete(ADO): void&#xa;+addReturnKey(ADO): int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;overflow=hidden;fontSize=9;" vertex="1" parent="dbrg">
+          <mxGeometry y="26" width="280" height="128" as="geometry"/>
+        </mxCell>
+
+        <!-- DbConnectionFactory -->
+        <mxCell id="dbcf" value="DbConnectionFactory" style="swimlane;startSize=26;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;fontSize=10;" vertex="1" parent="al">
+          <mxGeometry x="2000" y="455" width="280" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="dbcf_f" value="-instance: DbConnectionFactory&#xa;-conn: Connection&#xa;—&#xa;+getInstance(): DbConnectionFactory&#xa;+getConnection(): Connection" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;overflow=hidden;fontSize=9;" vertex="1" parent="dbcf">
+          <mxGeometry y="26" width="280" height="84" as="geometry"/>
+        </mxCell>
+
+        <!-- ===== KLIJENTSKA FORMA section label ===== -->
+        <mxCell id="kf_lbl" value="KLIJENTSKA FORMA" style="text;html=1;align=center;verticalAlign=middle;fontStyle=1;fontSize=11;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="10" y="956" width="420" height="28" as="geometry"/>
+        </mxCell>
+
+        <!-- Komunikacija (client singleton) -->
+        <mxCell id="kom" value="Komunikacija" style="swimlane;startSize=26;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="20" y="990" width="400" height="280" as="geometry"/>
+        </mxCell>
+        <mxCell id="kom_f" value="-instance: Komunikacija&#xa;-socket: Socket&#xa;-posiljalac: Posiljalac&#xa;-primalac: Primalac&#xa;—&#xa;+getInstance(): Komunikacija&#xa;+login(email: String, sifra: String): Zaposleni&#xa;+ucitajKlijente(k: Klijent): List&lt;Klijent&gt;&#xa;+dodajKlijenta(k: Klijent): void&#xa;+izmeniKlijenta(k: Klijent): void&#xa;+ucitajPreglede(p: Pregled): List&lt;Pregled&gt;&#xa;+obrisiPregled(p: Pregled): void&#xa;+ucitajGradove(g: Grad): List&lt;Grad&gt;&#xa;+ucitajTretmane(t: Tretman): List&lt;Tretman&gt;&#xa;+dodajTretman(t: Tretman): void&#xa;+izmeniTretman(t: Tretman): void&#xa;+dodajPregled(p: Pregled): void&#xa;+izmeniPregled(p: Pregled): void&#xa;+logout(z: Zaposleni): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;overflow=hidden;fontSize=9;" vertex="1" parent="kom">
+          <mxGeometry y="26" width="400" height="254" as="geometry"/>
+        </mxCell>
+
+        <!-- Kordinator -->
+        <mxCell id="kord" value="Kordinator" style="swimlane;startSize=26;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="20" y="1290" width="400" height="460" as="geometry"/>
+        </mxCell>
+        <mxCell id="kord_f" value="-instance: Kordinator&#xa;-loginController: LoginController&#xa;-glavnaFormaController: GlavnaFormaController&#xa;-pretraziKlijentaController: PretraziKlijentaController&#xa;-dodajKlijentaController: DodajKlijentaController&#xa;-prikaziPregledController: PrikaziPregledController&#xa;-prikaziTretmanController: PrikaziTretmanController&#xa;-dodajTretmanController: DodajTretmanController&#xa;-ulogovani: Zaposleni&#xa;-parametri: Map&lt;String, Object&gt;&#xa;—&#xa;+getInstance(): Kordinator&#xa;+otvoriLoginFormu(): void&#xa;+otvoriGlavnuFormu(): void&#xa;+getUlogovani(): Zaposleni&#xa;+setUlogovani(Zaposleni): void&#xa;+otvoriPretraziKlijentFormu(): void&#xa;+otvoriDodajKlijentaFormu(FormaMod): void&#xa;+getParametri(String): Object&#xa;+setParametri(String, Object): void&#xa;+osveziTabeluKlijent(): void&#xa;+otvoriPrikaziPregledFormu(): void&#xa;+otvoriPrikaziTretmanFormu(): void&#xa;+otvoriDodajTretmanFormu(FormaMod): void&#xa;+osveziTabeluTretman(): void&#xa;+osveziComboTretman(): void&#xa;+osveziComboKlijent(): void&#xa;+aktivirajIzmeniPregledMod(Pregled): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;overflow=hidden;fontSize=9;" vertex="1" parent="kord">
+          <mxGeometry y="26" width="400" height="434" as="geometry"/>
+        </mxCell>
+
+        <!-- Forme (client) -->
+        <mxCell id="forme" value="Forme (Swing)" style="swimlane;startSize=26;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="20" y="1770" width="400" height="174" as="geometry"/>
+        </mxCell>
+        <mxCell id="forme_f" value="LoginForma&#xa;GlavnaForma&#xa;DodajKlijentaForma&#xa;PretraziKlijentaForma&#xa;PrikaziPregledForma&#xa;DodajTretmanForma&#xa;PrikaziTretmanForma" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;overflow=hidden;fontSize=9;" vertex="1" parent="forme">
+          <mxGeometry y="26" width="400" height="148" as="geometry"/>
+        </mxCell>
+
+        <!-- ===== SERVERSKA FORMA section label ===== -->
+        <mxCell id="sf_lbl" value="SERVERSKA FORMA" style="text;html=1;align=center;verticalAlign=middle;fontStyle=1;fontSize=11;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="450" y="930" width="570" height="28" as="geometry"/>
+        </mxCell>
+
+        <!-- Server (Thread) -->
+        <mxCell id="serv" value="Server" style="swimlane;startSize=26;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="460" y="966" width="250" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="serv_f" value="-serverSocket: ServerSocket&#xa;-klijenti: List&lt;ObradaKlijentskihZahteva&gt;&#xa;—&#xa;+run(): void&#xa;+zaustaviServer(): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;overflow=hidden;fontSize=9;" vertex="1" parent="serv">
+          <mxGeometry y="26" width="250" height="74" as="geometry"/>
+        </mxCell>
+
+        <!-- ObradaKlijentskihZahteva -->
+        <mxCell id="okz" value="ObradaKlijentskihZahteva" style="swimlane;startSize=26;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="460" y="1086" width="250" height="126" as="geometry"/>
+        </mxCell>
+        <mxCell id="okz_f" value="«extends Thread»&#xa;-socket: Socket&#xa;-primalac: Primalac&#xa;-posiljalac: Posiljalac&#xa;—&#xa;+run(): void&#xa;+prekini(): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;overflow=hidden;fontSize=9;" vertex="1" parent="okz">
+          <mxGeometry y="26" width="250" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- Controller (server singleton) -->
+        <mxCell id="sctrl" value="Controller" style="swimlane;startSize=26;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="740" y="966" width="280" height="460" as="geometry"/>
+        </mxCell>
+        <mxCell id="sctrl_f" value="-instance: Controller&#xa;-ulogovani: List&lt;Zaposleni&gt;&#xa;—&#xa;+getInstance(): Controller&#xa;+login(z: Zaposleni): Zaposleni&#xa;+vratiSveKlijente(kl: Klijent): List&lt;Klijent&gt;&#xa;+dodajKlijenta(k: Klijent): void&#xa;+izmeniKlijenta(k: Klijent): void&#xa;+ucitajGradove(g: Grad): List&lt;Grad&gt;&#xa;+ucitajTretmane(t: Tretman): List&lt;Tretman&gt;&#xa;+dodajTretman(t: Tretman): void&#xa;+izmeniTretman(t: Tretman): void&#xa;+ucitajPreglede(p: Pregled): List&lt;Pregled&gt;&#xa;+kreirajPregled(p: Pregled): void&#xa;+izmeniPregled(p: Pregled): void&#xa;+obrisiPregled(p: Pregled): void&#xa;+logout(z: Zaposleni): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;overflow=hidden;fontSize=9;" vertex="1" parent="sctrl">
+          <mxGeometry y="26" width="280" height="434" as="geometry"/>
+        </mxCell>
+
+        <!-- ===== KONTROLER section (operations) ===== -->
+        <mxCell id="sec5" value="Kontroler" style="swimlane;startSize=26;fillColor=none;strokeColor=#000000;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="930" width="1920" height="900" as="geometry"/>
+        </mxCell>
+
+        <!-- ApstraktnaGenerickaOperacija (in Kontroler section - duplicate for layout, or use edge) -->
+        <!-- Operation column labels -->
+        <mxCell id="lbl_lo"  value="Login"   style="text;html=1;fontStyle=1;align=center;strokeColor=none;fillColor=none;fontSize=10;" vertex="1" parent="sec5"><mxGeometry x="10"   y="34" width="230" height="20" as="geometry"/></mxCell>
+        <mxCell id="lbl_kl"  value="Klijent" style="text;html=1;fontStyle=1;align=center;strokeColor=none;fillColor=none;fontSize=10;" vertex="1" parent="sec5"><mxGeometry x="260"  y="34" width="230" height="20" as="geometry"/></mxCell>
+        <mxCell id="lbl_gr"  value="Grad"    style="text;html=1;fontStyle=1;align=center;strokeColor=none;fillColor=none;fontSize=10;" vertex="1" parent="sec5"><mxGeometry x="510"  y="34" width="230" height="20" as="geometry"/></mxCell>
+        <mxCell id="lbl_tr"  value="Tretman" style="text;html=1;fontStyle=1;align=center;strokeColor=none;fillColor=none;fontSize=10;" vertex="1" parent="sec5"><mxGeometry x="760"  y="34" width="230" height="20" as="geometry"/></mxCell>
+        <mxCell id="lbl_pr"  value="Pregled" style="text;html=1;fontStyle=1;align=center;strokeColor=none;fillColor=none;fontSize=10;" vertex="1" parent="sec5"><mxGeometry x="1010" y="34" width="230" height="20" as="geometry"/></mxCell>
+
+        <!-- LoginOperacija -->
+        <mxCell id="op_lo" value="LoginOperacija" style="swimlane;startSize=26;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;fontSize=10;" vertex="1" parent="sec5">
+          <mxGeometry x="10" y="60" width="230" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="op_lo_f" value="-zaposleni: Zaposleni&#xa;—&#xa;#preduslovi(Object): void&#xa;#izvrsiOperaciju(Object, String): void&#xa;+getZaposleni(): Zaposleni" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;overflow=hidden;fontSize=9;" vertex="1" parent="op_lo">
+          <mxGeometry y="26" width="230" height="74" as="geometry"/>
+        </mxCell>
+
+        <!-- UcitajKlijenteOperacija -->
+        <mxCell id="op_uck" value="UcitajKlijenteOperacija" style="swimlane;startSize=26;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;fontSize=10;" vertex="1" parent="sec5">
+          <mxGeometry x="260" y="60" width="230" height="86" as="geometry"/>
+        </mxCell>
+        <mxCell id="op_uck_f" value="-lista: List&lt;Klijent&gt;&#xa;—&#xa;#preduslovi(Object): void&#xa;#izvrsiOperaciju(Object, String): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;overflow=hidden;fontSize=9;" vertex="1" parent="op_uck">
+          <mxGeometry y="26" width="230" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- DodajKlijentaOperacija -->
+        <mxCell id="op_ddk" value="DodajKlijentaOperacija" style="swimlane;startSize=26;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;fontSize=10;" vertex="1" parent="sec5">
+          <mxGeometry x="260" y="166" width="230" height="86" as="geometry"/>
+        </mxCell>
+        <mxCell id="op_ddk_f" value="#preduslovi(Object): void&#xa;#izvrsiOperaciju(Object, String): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;overflow=hidden;fontSize=9;" vertex="1" parent="op_ddk">
+          <mxGeometry y="26" width="230" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- IzmeniKlijentaOperacija -->
+        <mxCell id="op_izk" value="IzmeniKlijentaOperacija" style="swimlane;startSize=26;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;fontSize=10;" vertex="1" parent="sec5">
+          <mxGeometry x="260" y="272" width="230" height="86" as="geometry"/>
+        </mxCell>
+        <mxCell id="op_izk_f" value="#preduslovi(Object): void&#xa;#izvrsiOperaciju(Object, String): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;overflow=hidden;fontSize=9;" vertex="1" parent="op_izk">
+          <mxGeometry y="26" width="230" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- UcitajGradoveOperacija -->
+        <mxCell id="op_ucg" value="UcitajGradoveOperacija" style="swimlane;startSize=26;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;fontSize=10;" vertex="1" parent="sec5">
+          <mxGeometry x="510" y="60" width="230" height="86" as="geometry"/>
+        </mxCell>
+        <mxCell id="op_ucg_f" value="-lista: List&lt;Grad&gt;&#xa;—&#xa;#preduslovi(Object): void&#xa;#izvrsiOperaciju(Object, String): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;overflow=hidden;fontSize=9;" vertex="1" parent="op_ucg">
+          <mxGeometry y="26" width="230" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- UcitajTretmanOperacija -->
+        <mxCell id="op_uct" value="UcitajTretmanOperacija" style="swimlane;startSize=26;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;fontSize=10;" vertex="1" parent="sec5">
+          <mxGeometry x="760" y="60" width="230" height="86" as="geometry"/>
+        </mxCell>
+        <mxCell id="op_uct_f" value="-lista: List&lt;Tretman&gt;&#xa;—&#xa;#preduslovi(Object): void&#xa;#izvrsiOperaciju(Object, String): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;overflow=hidden;fontSize=9;" vertex="1" parent="op_uct">
+          <mxGeometry y="26" width="230" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- DodajTretmanOperacija -->
+        <mxCell id="op_ddt" value="DodajTretmanOperacija" style="swimlane;startSize=26;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;fontSize=10;" vertex="1" parent="sec5">
+          <mxGeometry x="760" y="166" width="230" height="86" as="geometry"/>
+        </mxCell>
+        <mxCell id="op_ddt_f" value="#preduslovi(Object): void&#xa;  [cena 500-10000, naziv≥4, opis≥20]&#xa;#izvrsiOperaciju(Object, String): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;overflow=hidden;fontSize=9;" vertex="1" parent="op_ddt">
+          <mxGeometry y="26" width="230" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- IzmeniTretmanOperacija -->
+        <mxCell id="op_izt" value="IzmeniTretmanOperacija" style="swimlane;startSize=26;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;fontSize=10;" vertex="1" parent="sec5">
+          <mxGeometry x="760" y="272" width="230" height="86" as="geometry"/>
+        </mxCell>
+        <mxCell id="op_izt_f" value="#preduslovi(Object): void&#xa;#izvrsiOperaciju(Object, String): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;overflow=hidden;fontSize=9;" vertex="1" parent="op_izt">
+          <mxGeometry y="26" width="230" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- UcitajPregledOperacija -->
+        <mxCell id="op_ucp" value="UcitajPregledOperacija" style="swimlane;startSize=26;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;fontSize=10;" vertex="1" parent="sec5">
+          <mxGeometry x="1010" y="60" width="230" height="86" as="geometry"/>
+        </mxCell>
+        <mxCell id="op_ucp_f" value="-lista: List&lt;Pregled&gt;&#xa;—&#xa;#preduslovi(Object): void&#xa;#izvrsiOperaciju(Object, String): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;overflow=hidden;fontSize=9;" vertex="1" parent="op_ucp">
+          <mxGeometry y="26" width="230" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- DodajPregledOperacija -->
+        <mxCell id="op_ddp" value="DodajPregledOperacija" style="swimlane;startSize=26;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;fontSize=10;" vertex="1" parent="sec5">
+          <mxGeometry x="1010" y="166" width="230" height="86" as="geometry"/>
+        </mxCell>
+        <mxCell id="op_ddp_f" value="#preduslovi(Object): void&#xa;  [stavke!=null, datumPregleda&gt;sada]&#xa;#izvrsiOperaciju(Object, String): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;overflow=hidden;fontSize=9;" vertex="1" parent="op_ddp">
+          <mxGeometry y="26" width="230" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- IzmeniPregledOperacija -->
+        <mxCell id="op_izp" value="IzmeniPregledOperacija" style="swimlane;startSize=26;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;fontSize=10;" vertex="1" parent="sec5">
+          <mxGeometry x="1010" y="272" width="230" height="86" as="geometry"/>
+        </mxCell>
+        <mxCell id="op_izp_f" value="#preduslovi(Object): void&#xa;#izvrsiOperaciju(Object, String): void&#xa;  [brisi stare stavke, dodaj nove]" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;overflow=hidden;fontSize=9;" vertex="1" parent="op_izp">
+          <mxGeometry y="26" width="230" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- ObrisiPregledOperacija -->
+        <mxCell id="op_obp" value="ObrisiPregledOperacija" style="swimlane;startSize=26;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;fontSize=10;" vertex="1" parent="sec5">
+          <mxGeometry x="1010" y="378" width="230" height="86" as="geometry"/>
+        </mxCell>
+        <mxCell id="op_obp_f" value="#preduslovi(Object): void&#xa;#izvrsiOperaciju(Object, String): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;overflow=hidden;fontSize=9;" vertex="1" parent="op_obp">
+          <mxGeometry y="26" width="230" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- ApstraktnaGenerickaOperacija (in Kontroler) -->
+        <mxCell id="ago" value="«abstract»&#xa;ApstraktnaGenerickaOperacija" style="swimlane;startSize=40;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontStyle=3;align=center;fontSize=10;" vertex="1" parent="sec5">
+          <mxGeometry x="1310" y="60" width="280" height="196" as="geometry"/>
+        </mxCell>
+        <mxCell id="ago_f" value="#broker: Repository&#xa;—&#xa;+izvrsi(Object, String): void [final]&#xa;#preduslovi(Object): void [abstract]&#xa;#izvrsiOperaciju(Object, String): void [abstract]&#xa;#zapocniTransakciju(): void&#xa;#potvrdiTransakciju(): void&#xa;#ponistiTransakciju(): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;overflow=hidden;fontSize=9;" vertex="1" parent="ago">
+          <mxGeometry y="40" width="280" height="156" as="geometry"/>
+        </mxCell>
+
+        <!-- DbRepositoryGeneric (in Kontroler) -->
+        <mxCell id="dbrg2" value="DbRepositoryGeneric" style="swimlane;startSize=26;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;fontSize=10;" vertex="1" parent="sec5">
+          <mxGeometry x="1640" y="60" width="260" height="154" as="geometry"/>
+        </mxCell>
+        <mxCell id="dbrg2_f" value="«implements» DbRepository&#xa;—&#xa;+getAll(ADO, String): List&#xa;+add(ADO): void&#xa;+edit(ADO): void&#xa;+delete(ADO): void&#xa;+addReturnKey(ADO): int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;overflow=hidden;fontSize=9;" vertex="1" parent="dbrg2">
+          <mxGeometry y="26" width="260" height="128" as="geometry"/>
+        </mxCell>
+
+        <!-- DbConnectionFactory (in Kontroler) -->
+        <mxCell id="dbcf2" value="DbConnectionFactory" style="swimlane;startSize=26;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;fontSize=10;" vertex="1" parent="sec5">
+          <mxGeometry x="1640" y="240" width="260" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="dbcf2_f" value="-instance: DbConnectionFactory&#xa;—&#xa;+getInstance(): DbConnectionFactory&#xa;+getConnection(): Connection" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;overflow=hidden;fontSize=9;" vertex="1" parent="dbcf2">
+          <mxGeometry y="26" width="260" height="84" as="geometry"/>
+        </mxCell>
+
+        <!-- ===== RELATIONSHIPS ===== -->
+
+        <!-- Domain classes implement ApstraktniDomenskiObjekat -->
+        <mxCell id="e1" style="endArrow=block;endFill=0;endSize=10;dashed=1;" edge="1" parent="al" source="zap" target="ado"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e2" style="endArrow=block;endFill=0;endSize=10;dashed=1;" edge="1" parent="al" source="kl" target="ado"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e3" style="endArrow=block;endFill=0;endSize=10;dashed=1;" edge="1" parent="al" source="tret" target="ado"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e4" style="endArrow=block;endFill=0;endSize=10;dashed=1;" edge="1" parent="al" source="preg" target="ado"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e5" style="endArrow=block;endFill=0;endSize=10;dashed=1;" edge="1" parent="al" source="stav" target="ado"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e6" style="endArrow=block;endFill=0;endSize=10;dashed=1;" edge="1" parent="al" source="gr" target="ado"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e7" style="endArrow=block;endFill=0;endSize=10;dashed=1;" edge="1" parent="al" source="ss" target="ado"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e8" style="endArrow=block;endFill=0;endSize=10;dashed=1;" edge="1" parent="al" source="zss" target="ado"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <!-- Domain associations -->
+        <mxCell id="e9"  value="1          0..*" style="endArrow=open;endSize=8;startArrow=none;fontSize=9;" edge="1" parent="al" source="preg" target="stav"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e10" value="0..*     1"      style="endArrow=open;endSize=8;fontSize=9;" edge="1" parent="al" source="stav" target="tret"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e11" value="0..*     1"      style="endArrow=open;endSize=8;fontSize=9;" edge="1" parent="al" source="kl" target="gr"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e12" value="1     0..*"      style="endArrow=open;endSize=8;fontSize=9;" edge="1" parent="al" source="zap" target="preg"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e13" value="1     0..*"      style="endArrow=open;endSize=8;fontSize=9;" edge="1" parent="al" source="kl" target="preg"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e14" style="endArrow=open;endSize=8;" edge="1" parent="al" source="zap" target="zss"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e15" style="endArrow=open;endSize=8;" edge="1" parent="al" source="zss" target="ss"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <!-- ApstraktnaGenerickaOperacija uses DbRepositoryGeneric -->
+        <mxCell id="e16" value="uses" style="endArrow=open;endSize=8;dashed=1;fontSize=9;" edge="1" parent="sec5" source="ago" target="dbrg2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e17" style="endArrow=open;endSize=8;fontSize=9;" edge="1" parent="sec5" source="dbrg2" target="dbcf2"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <!-- Operations extend ApstraktnaGenerickaOperacija -->
+        <mxCell id="e20" style="endArrow=block;endFill=0;endSize=10;" edge="1" parent="sec5" source="op_lo"  target="ago"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e21" style="endArrow=block;endFill=0;endSize=10;" edge="1" parent="sec5" source="op_uck" target="ago"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e22" style="endArrow=block;endFill=0;endSize=10;" edge="1" parent="sec5" source="op_ddk" target="ago"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e23" style="endArrow=block;endFill=0;endSize=10;" edge="1" parent="sec5" source="op_izk" target="ago"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e24" style="endArrow=block;endFill=0;endSize=10;" edge="1" parent="sec5" source="op_ucg" target="ago"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e25" style="endArrow=block;endFill=0;endSize=10;" edge="1" parent="sec5" source="op_uct" target="ago"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e26" style="endArrow=block;endFill=0;endSize=10;" edge="1" parent="sec5" source="op_ddt" target="ago"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e27" style="endArrow=block;endFill=0;endSize=10;" edge="1" parent="sec5" source="op_izt" target="ago"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e28" style="endArrow=block;endFill=0;endSize=10;" edge="1" parent="sec5" source="op_ucp" target="ago"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e29" style="endArrow=block;endFill=0;endSize=10;" edge="1" parent="sec5" source="op_ddp" target="ago"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e30" style="endArrow=block;endFill=0;endSize=10;" edge="1" parent="sec5" source="op_izp" target="ago"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e31" style="endArrow=block;endFill=0;endSize=10;" edge="1" parent="sec5" source="op_obp" target="ago"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <!-- Server infrastructure -->
+        <mxCell id="e34" value="creates" style="endArrow=open;endSize=8;fontSize=9;" edge="1" parent="1" source="serv" target="okz"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e35" value="uses" style="endArrow=open;endSize=8;fontSize=9;" edge="1" parent="1" source="okz" target="sctrl"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e37" value="uses" style="endArrow=open;endSize=8;dashed=1;fontSize=9;" edge="1" parent="1" source="kord" target="kom"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e38" value="Socket :9000" style="endArrow=open;startArrow=open;startFill=0;endFill=0;dashed=1;fontSize=9;" edge="1" parent="1" source="kom" target="serv"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e39" value="uses" style="endArrow=open;endSize=8;dashed=1;fontSize=9;" edge="1" parent="1" source="kord" target="forme"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <!-- DATABASE BROKER arrow -->
+        <mxCell id="e40" value="DATABASE&#xa;BROKER" style="endArrow=open;startArrow=open;startFill=0;endFill=0;fontSize=9;fontStyle=1;" edge="1" parent="1" source="stor" target="al"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <!-- Footer -->
+        <mxCell id="footer" value="Ponasanje softverskog sistema" style="text;html=1;align=right;strokeColor=none;fillColor=none;fontStyle=2;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="2600" y="1958" width="360" height="18" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

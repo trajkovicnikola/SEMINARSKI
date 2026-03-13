@@ -2,6 +2,15 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/trajk/OneDrive/Documents/NetBeansProjects/SEMINARSKI/0_SEMINARSKI_SERVER/src/operacija/pregled/UcitajPregledOperacija.java</file>
+            <file>file:/C:/Users/trajk/OneDrive/Documents/NetBeansProjects/SEMINARSKI/0_SEMINARSKI_SERVER/src/operacija/ApstraktnaGenerickaOperacija.java</file>
+            <file>file:/C:/Users/trajk/OneDrive/Documents/NetBeansProjects/SEMINARSKI/0_SEMINARSKI_SERVER/src/controller/Controller.java</file>
+            <file>file:/C:/Users/trajk/OneDrive/Documents/NetBeansProjects/SEMINARSKI/0_SEMINARSKI_SERVER/src/server/Server.java</file>
+            <file>file:/C:/Users/trajk/OneDrive/Documents/NetBeansProjects/SEMINARSKI/0_SEMINARSKI_SERVER/src/niti/ObradaKlijentskihZahteva.java</file>
+            <file>file:/C:/Users/trajk/OneDrive/Documents/NetBeansProjects/SEMINARSKI/0_SEMINARSKI_SERVER/src/operacija/pregled/DodajPregledOperacija.java</file>
+            <file>file:/C:/Users/trajk/OneDrive/Documents/NetBeansProjects/SEMINARSKI/0_SEMINARSKI_SERVER/src/operacija/klijent/UcitajKlijenteOperacija.java</file>
+            <file>file:/C:/Users/trajk/OneDrive/Documents/NetBeansProjects/SEMINARSKI/0_SEMINARSKI_SERVER/src/operacija/pregled/IzmeniPregledOperacija.java</file>
+        </group>
     </open-files>
 </project-private>
