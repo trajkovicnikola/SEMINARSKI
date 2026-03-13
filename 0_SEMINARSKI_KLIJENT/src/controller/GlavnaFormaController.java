@@ -171,12 +171,27 @@ public class GlavnaFormaController {
                 }
             }
         });
+        
+        gf.obrisiPregledActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (pregledZaIzmenu == null) return;
+                try {
+                    Komunikacija.getInstance().obrisiPregled(pregledZaIzmenu);
+                    JOptionPane.showMessageDialog(gf, "Sistem je uspesno obrisao pregled", "USPEH", JOptionPane.INFORMATION_MESSAGE);
+                    resetujNaDodajMod();
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(gf, ex.getMessage(), "GRESKA", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
 
     }
 
     private void pripremiFormu() {
         gf.getDateTimePicker().getDatePicker().getSettings().setAllowKeyboardEditing(false);
         TimePickerSettings tps = gf.getDateTimePicker().getTimePicker().getSettings();
+        resetujNaDodajMod();
         tps.setAllowKeyboardEditing(false);
         tps.use24HourClockFormat();
         tps.generatePotentialMenuTimes(
@@ -208,6 +223,7 @@ public class GlavnaFormaController {
 
         gf.getjButtonKreirajPregled().setText("Izmeni pregled");
         gf.getjButtonOdustani().setVisible(true);
+        gf.getjButtonObrisiPregled().setVisible(true);
         gf.toFront();
         gf.requestFocus();
     }
@@ -215,6 +231,7 @@ public class GlavnaFormaController {
     private void resetujNaDodajMod() {
         pregledZaIzmenu = null;
         gf.getjButtonKreirajPregled().setText("Kreiraj pregled");
+        gf.getjButtonObrisiPregled().setVisible(false);
         gf.getjButtonOdustani().setVisible(false);
         gf.getjTableStavka().setModel(new ModelTabeleStavka(new ArrayList<>()));
         gf.getDateTimePicker().setDateTimeStrict(null);

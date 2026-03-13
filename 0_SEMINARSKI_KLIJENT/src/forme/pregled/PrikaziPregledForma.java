@@ -48,7 +48,6 @@ public class PrikaziPregledForma extends javax.swing.JFrame {
         jButtonResetujPretragu = new javax.swing.JButton();
         jDateChooser = new com.toedter.calendar.JDateChooser();
         jLabel1 = new javax.swing.JLabel();
-        jButtonObrisiPregled = new javax.swing.JButton();
         jButtonIzmeniPregled = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -85,8 +84,6 @@ public class PrikaziPregledForma extends javax.swing.JFrame {
 
         jLabel1.setText("Datum pregleda:");
 
-        jButtonObrisiPregled.setText("Obrisi pregled");
-
         jButtonIzmeniPregled.setText("Izmeni pregled");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -101,19 +98,15 @@ public class PrikaziPregledForma extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonObrisiPregled)
-                        .addGap(10, 10, 10)
-                        .addComponent(jButtonIzmeniPregled))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(12, 12, 12)
-                        .addComponent(jDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(jButtonPretrazi)
-                        .addGap(10, 10, 10)
-                        .addComponent(jButtonResetujPretragu)))
+                .addComponent(jLabel1)
+                .addGap(12, 12, 12)
+                .addComponent(jDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(jButtonPretrazi)
+                .addGap(10, 10, 10)
+                .addComponent(jButtonResetujPretragu)
+                .addGap(10, 10, 10)
+                .addComponent(jButtonIzmeniPregled)
                 .addContainerGap(15, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -124,10 +117,7 @@ public class PrikaziPregledForma extends javax.swing.JFrame {
                     .addComponent(jDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
                     .addComponent(jButtonPretrazi)
-                    .addComponent(jButtonResetujPretragu))
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonObrisiPregled)
+                    .addComponent(jButtonResetujPretragu)
                     .addComponent(jButtonIzmeniPregled))
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -232,7 +222,6 @@ public class PrikaziPregledForma extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonIzmeniPregled;
-    private javax.swing.JButton jButtonObrisiPregled;
     private javax.swing.JButton jButtonPretrazi;
     private javax.swing.JButton jButtonResetujPretragu;
     private com.toedter.calendar.JDateChooser jDateChooser;
@@ -250,9 +239,7 @@ public void addPretraziActionListener(ActionListener actionListener) {
         jButtonResetujPretragu.addActionListener(actionListener);
     }
 
-    public void addObrisiPregledActionListener(ActionListener actionListener) {
-        jButtonObrisiPregled.addActionListener(actionListener);
-    }
+   
 
     public void addIzmeniPregledActionListener(ActionListener actionListener) {
         jButtonIzmeniPregled.addActionListener(actionListener);

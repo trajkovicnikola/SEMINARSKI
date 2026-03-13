@@ -106,25 +106,7 @@ public class PrikaziPregledController {
             }
         });
 
-        pkf.addObrisiPregledActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int selektovaniRed = pkf.getjTablePregled().getSelectedRow();
-                if (selektovaniRed == -1) {
-                    JOptionPane.showMessageDialog(pkf, "Morate izabrati pregled koji zelite da obrisete", "GRESKA", JOptionPane.ERROR_MESSAGE);
-                    return;
-                }
-                ModelTabelePregled mtp = (ModelTabelePregled) pkf.getjTablePregled().getModel();
-                Pregled p = mtp.getLista().get(selektovaniRed);
-                try {
-                    Komunikacija.getInstance().obrisiPregled(p);
-                    JOptionPane.showMessageDialog(pkf, "Sistem je uspesno obrisao pregled", "USPEH", JOptionPane.INFORMATION_MESSAGE);
-                    pripremiPodatke();
-                } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(pkf, ex.getMessage(), "GRESKA", JOptionPane.ERROR_MESSAGE);
-                }
-            }
-        });
+     
 
         pkf.addIzmeniPregledActionListener(new ActionListener() {
             @Override
