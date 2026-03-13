@@ -176,6 +176,8 @@ public class GlavnaFormaController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (pregledZaIzmenu == null) return;
+                int potvrda = JOptionPane.showConfirmDialog(gf, "Da li ste sigurni da zelite da obrisete pregled?", "Potvrda brisanja", JOptionPane.YES_NO_OPTION);
+                if (potvrda != JOptionPane.YES_OPTION) return;
                 try {
                     Komunikacija.getInstance().obrisiPregled(pregledZaIzmenu);
                     JOptionPane.showMessageDialog(gf, "Sistem je uspesno obrisao pregled", "USPEH", JOptionPane.INFORMATION_MESSAGE);
