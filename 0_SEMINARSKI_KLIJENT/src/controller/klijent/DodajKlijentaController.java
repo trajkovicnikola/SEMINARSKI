@@ -53,7 +53,7 @@ public class DodajKlijentaController {
         dkf.dodajKlijentaActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (dkf.getjTextFieldIme().getText().isEmpty() || dkf.getjTextFieldPrezime().getText().isEmpty() || dkf.getjTextFieldPrezime().getText().isEmpty()) {
+                if (dkf.getjTextFieldIme().getText().isEmpty() || dkf.getjTextFieldPrezime().getText().isEmpty() || dkf.getjTextFieldBroj().getText().isEmpty()) {
                     JOptionPane.showMessageDialog(dkf, "Sve forme moraju biti popunjene", "Greska", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
@@ -77,7 +77,7 @@ public class DodajKlijentaController {
         dkf.izmeniKlijentaActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (dkf.getjTextFieldIme().getText().isEmpty() || dkf.getjTextFieldPrezime().getText().isEmpty() || dkf.getjTextFieldPrezime().getText().isEmpty()) {
+                if (dkf.getjTextFieldIme().getText().isEmpty() || dkf.getjTextFieldPrezime().getText().isEmpty() || dkf.getjTextFieldBroj().getText().isEmpty()) {
                     JOptionPane.showMessageDialog(dkf, "Sve forme moraju biti popunjene", "Greska", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
