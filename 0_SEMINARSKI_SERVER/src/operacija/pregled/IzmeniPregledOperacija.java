@@ -31,6 +31,20 @@ public class IzmeniPregledOperacija extends ApstraktnaGenerickaOperacija {
         if (!p.getDatumPregleda().after(p.getDatumRezervacije())) {
             throw new Exception("Datum pregleda mora biti posle datuma rezervacije");
         }
+        List<Pregled> sviPregledi = broker.getAll(new Pregled(), null);
+        for (Pregled postojeci : sviPregledi) {
+            if (postojeci.getPregledID() == p.getPregledID()) {
+                continue;
+            }
+            if (postojeci.getDatumPregleda().equals(p.getDatumPregleda())) {
+                if (postojeci.getZaposleni().getZaposleniID() == p.getZaposleni().getZaposleniID()) {
+                    throw new Exception("Zaposleni vec ima pregled u to vreme");
+                }
+                if (postojeci.getKlijent().getKlijentID() == p.getKlijent().getKlijentID()) {
+                    throw new Exception("Klijent vec ima pregled u to vreme");
+                }
+            }
+        }
     }
 
     @Override

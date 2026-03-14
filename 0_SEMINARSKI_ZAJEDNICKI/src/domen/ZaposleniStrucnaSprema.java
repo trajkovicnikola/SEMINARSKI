@@ -122,16 +122,20 @@ public class ZaposleniStrucnaSprema implements ApstraktniDomenskiObjekat {
 
     @Override
     public ApstraktniDomenskiObjekat vratiObjekatIzRS(ResultSet rs) throws Exception {
-        int zaposleniID = rs.getInt("zaposleniID");
-        int strucnaSpremaID = rs.getInt("strucnaSpremaID");
+        int zaposleniID = rs.getInt("zaposleni.zaposleniID");
+        String ime=rs.getString("zaposleni.ime");
+        String prezime=rs.getString("zaposleni.prezime");
+        String email=rs.getString("zaposleni.email");
+        String sifra=rs.getString("zaposleni.sifra");
+        Zaposleni z = new Zaposleni(zaposleniID, ime, prezime, email, sifra);
+        
+        int strucnaSpremaID = rs.getInt("strucnasprema.strucnaSpremaID");
+        String naziv=rs.getString("strucnasprema.naziv");
+        StrucnaSprema ss = new StrucnaSprema(strucnaSpremaID, naziv);
+        
+        Date datumKvalifikacije=rs.getDate("zapss.datumKvalifikacije");
 
-        Zaposleni z = new Zaposleni();
-        z.setZaposleniID(zaposleniID);
-
-        StrucnaSprema ss = new StrucnaSprema();
-        ss.setStrucnaSpremaID(strucnaSpremaID);
-
-        return new ZaposleniStrucnaSprema(z, ss, null);
+        return new ZaposleniStrucnaSprema(z, ss, datumKvalifikacije);
     }
 
     @Override

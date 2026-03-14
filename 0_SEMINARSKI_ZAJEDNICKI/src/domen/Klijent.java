@@ -79,7 +79,7 @@ public class Klijent implements ApstraktniDomenskiObjekat {
 
     @Override
     public int hashCode() {
-        int hash = 7;
+        int hash = 5;
         return hash;
     }
 
@@ -95,14 +95,10 @@ public class Klijent implements ApstraktniDomenskiObjekat {
             return false;
         }
         final Klijent other = (Klijent) obj;
-        if (this.klijentID != other.klijentID) {
-            return false;
-        }
-        if (!Objects.equals(this.ime, other.ime)) {
-            return false;
-        }
-        return Objects.equals(this.prezime, other.prezime);
+        return this.klijentID == other.klijentID;
     }
+
+    
 
     @Override
     public String vratiNazivTabele() {

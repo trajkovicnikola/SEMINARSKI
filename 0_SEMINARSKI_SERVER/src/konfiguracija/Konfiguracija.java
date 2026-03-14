@@ -24,7 +24,7 @@ public class Konfiguracija {
     private Konfiguracija(){
         try {
             konfiguracija=new Properties();
-            konfiguracija.load(new FileInputStream("C:\\Users\\trajk\\OneDrive\\Documents\\NetBeansProjects\\SEMINARSKI\\0_SEMINARSKI_SERVER\\config\\config.properties"));
+            konfiguracija.load(new FileInputStream("config/config.properties"));
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Konfiguracija.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
@@ -48,7 +48,7 @@ public class Konfiguracija {
    
    public void sacuvajIzmene(){
         try {
-            konfiguracija.store(new FileOutputStream("C:\\Users\\trajk\\OneDrive\\Documents\\NetBeansProjects\\0_SEMINARSKI_SERVER\\config\\config.properties"), null);
+            konfiguracija.store(new FileOutputStream("config/config.properties"), null);
         } catch (FileNotFoundException ex) {
             ex.printStackTrace();
             Logger.getLogger(Konfiguracija.class.getName()).log(Level.SEVERE, null, ex);
